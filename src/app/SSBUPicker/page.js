@@ -1,6 +1,7 @@
 import { MantineProvider } from '@mantine/core';
 import Image from 'next/image';
 import Mario from '/public/assets/characters/Mario.png';
+import Luigi from '/public/assets/characters/Luigi.png';
 import DrMario from '/public/assets/characters/DrMario.png';
 import DonkeyKong from '/public/assets/characters/DonkeyKong.png';
 import DiddyKing from '/public/assets/characters/DiddyKong.png';
@@ -36,7 +37,7 @@ import Robin from '/public/assets/characters/Robin.png';
 import Lucina from '/public/assets/characters/Lucina.png';
 import Chrom from '/public/assets/characters/Chrom.png';
 import Roy from '/public/assets/characters/Roy.png';
-import Rosaline from '/public/assets/characters/Rosalina.png';
+import Rosalina from '/public/assets/characters/Rosalina.png';
 import Byleth from '/public/assets/characters/Byleth.png';
 import Pit from '/public/assets/characters/Pit.png';
 import DarkPit from '/public/assets/characters/DarkPit.png';
@@ -84,12 +85,103 @@ import Sephiroth from '/public/assets/characters/Sephiroth.png';
 import Marth from '/public/assets/characters/Marth.png';
 import Bowser from '/public/assets/characters/Bowser.png';
 import BowserJr from '/public/assets/characters/BowserJr.png';
+import MiiFight from '/public/assets/characters/Mii_Fight.png';
+import MiiSword from '/public/assets/characters/Mii_Sword.png';
+import MiiGun from '/public/assets/characters/Mii_Gun.png';
 
+var dim = 125;
 
 export default function Home() {
     return (
       <main>
-        <Image src={Mario} width={200} height={200} alt="mario"></Image>
+        <Image src={Mario} width={dim} height={dim} alt="Mario"></Image>
+        <Image src={DonkeyKong} width={dim} height={dim} alt="DK"></Image>
+        <Image src={Link} width={dim} height={dim} alt="Link"></Image>
+        <Image src={Samus} width={dim} height={dim} alt="Samus"></Image>
+        <Image src={DarkSamus} width={dim} height={dim} alt="Dark Samus"></Image>
+        <Image src={Yoshi} width={dim} height={dim} alt="Yoshi"></Image>
+        <Image src={Kirby} width={dim} height={dim} alt="Kirby"></Image>
+        <Image src={Fox} width={dim} height={dim} alt="Fox"></Image>
+        <Image src={Pikachu} width={dim} height={dim} alt="Pikachu"></Image>
+        <Image src={Luigi} width={dim} height={dim} alt="Luigi"></Image>
+        <Image src={Ness} width={dim} height={dim} alt="Ness"></Image>
+        <Image src={CaptainFalcon} width={dim} height={dim} alt="Captain Falcon"></Image>
+        <Image src={Jigglypuff} width={dim} height={dim} alt="Jigglypuff"></Image>
+        <Image src={Peach} width={dim} height={dim} alt="Peach"></Image>
+        <Image src={Daisy} width={dim} height={dim} alt="Daisy"></Image>
+        <Image src={Bowser} width={dim} height={dim} alt="Bowser"></Image>
+        <Image src={IceClimbers} width={dim} height={dim} alt="Ice Climbers"></Image>
+        <Image src={Sheik} width={dim} height={dim} alt="Sheik"></Image>
+        <Image src={Zelda} width={dim} height={dim} alt="Zelda"></Image>
+        <Image src={DrMario} width={dim} height={dim} alt="Dr. Mario"></Image>
+        <Image src={Pichu} width={dim} height={dim} alt="Pichu"></Image>
+        <Image src={Falco} width={dim} height={dim} alt="Falco"></Image>
+        <Image src={Marth} width={dim} height={dim} alt="Marth"></Image>
+        <Image src={Lucina} width={dim} height={dim} alt="Lucina"></Image>
+        <Image src={YoungLink} width={dim} height={dim} alt="Young Link"></Image>
+        <Image src={Ganondorf} width={dim} height={dim} alt="Ganondor"></Image>
+        <Image src={Mewtwo} width={dim} height={dim} alt="Mewtwo"></Image>
+        <Image src={Roy} width={dim} height={dim} alt="Roy"></Image>
+        <Image src={Chrom} width={dim} height={dim} alt="Chrom"></Image>
+        <Image src={MrGameAndWatch} width={dim} height={dim} alt="Mr. Game & Watch"></Image>
+        <Image src={MetaKnight} width={dim} height={dim} alt="Meta Knight"></Image>
+        <Image src={Pit} width={dim} height={dim} alt="Pit"></Image>
+        <Image src={DarkPit} width={dim} height={dim} alt="Dark Pit"></Image>
+        <Image src={ZSS} width={dim} height={dim} alt="Zero Suit Samus"></Image>
+        <Image src={Wario} width={dim} height={dim} alt="Wario"></Image>
+        <Image src={Snake} width={dim} height={dim} alt="Snake"></Image>
+        <Image src={Ike} width={dim} height={dim} alt="Ike"></Image>
+        <Image src={PokemonTrainer} width={dim} height={dim} alt="Pokémon Trainer"></Image>
+        <Image src={DiddyKing} width={dim} height={dim} alt="Diddy Kong"></Image>
+        <Image src={Lucas} width={dim} height={dim} alt="Lucas"></Image>
+        <Image src={Sonic} width={dim} height={dim} alt="Sonic"></Image>
+        <Image src={KingDedede} width={dim} height={dim} alt="King Dedede"></Image>
+        <Image src={Olimar} width={dim} height={dim} alt="Olimar"></Image>
+        <Image src={Lucario} width={dim} height={dim} alt="Lucario"></Image>
+        <Image src={ROB} width={dim} height={dim} alt="R.O.B."></Image>
+        <Image src={ToonLink} width={dim} height={dim} alt="Toon Link"></Image>
+        <Image src={Wolf} width={dim} height={dim} alt="Wolf"></Image>
+        <Image src={Villager} width={dim} height={dim} alt="Villager"></Image>
+        <Image src={Megaman} width={dim} height={dim} alt="Mega Man"></Image>
+        <Image src={WiiFitTrainer} width={dim} height={dim} alt="Wii Fit"></Image>
+        <Image src={Rosalina} width={dim} height={dim} alt="Rosalina"></Image>
+        <Image src={Mac} width={dim} height={dim} alt="Little Mac"></Image>
+        <Image src={Greninja} width={dim} height={dim} alt="Greninja"></Image>
+        <Image src={MiiFight} width={dim} height={dim} alt="Mii Brawler"></Image>
+        <Image src={MiiSword} width={dim} height={dim} alt="Mii Sowrdfighter"></Image>
+        <Image src={MiiGun} width={dim} height={dim} alt="Mii Gunner"></Image>
+        <Image src={Palutena} width={dim} height={dim} alt="Palutena"></Image>
+        <Image src={PacMan} width={dim} height={dim} alt="Pac-Man"></Image>
+        <Image src={Robin} width={dim} height={dim} alt="Robin"></Image>
+        <Image src={Shulk} width={dim} height={dim} alt="Shulk"></Image>
+        <Image src={BowserJr} width={dim} height={dim} alt="Bowser Jr."></Image>
+        <Image src={DuckHunt} width={dim} height={dim} alt="Duck Hunt"></Image>
+        <Image src={Ryu} width={dim} height={dim} alt="Ryu"></Image>
+        <Image src={Ken} width={dim} height={dim} alt="Ken"></Image>
+        <Image src={Cloud} width={dim} height={dim} alt="Cloud"></Image>
+        <Image src={Corrin} width={dim} height={dim} alt="Corrin"></Image>
+        <Image src={Bayonetta} width={dim} height={dim} alt="Bayonetta"></Image>
+        <Image src={Inkling} width={dim} height={dim} alt="Inkling"></Image>
+        <Image src={Ridley} width={dim} height={dim} alt="Ridley"></Image>
+        <Image src={Simon} width={dim} height={dim} alt="Simon"></Image>
+        <Image src={Richter} width={dim} height={dim} alt="Richter"></Image>
+        <Image src={KingKRool} width={dim} height={dim} alt="King K. Rool"></Image>
+        <Image src={Isabelle} width={dim} height={dim} alt="Isabelle"></Image>
+        <Image src={Incineroar} width={dim} height={dim} alt="Incineroar"></Image>
+        <Image src={PiranhaPlant} width={dim} height={dim} alt="Piranha Plant"></Image>
+        <Image src={Joker} width={dim} height={dim} alt="Joker"></Image>
+        <Image src={Hero} width={dim} height={dim} alt="Hero"></Image>
+        <Image src={BanjoKazooie} width={dim} height={dim} alt="Banjo & Kazooie"></Image>
+        <Image src={Terry} width={dim} height={dim} alt="Terry"></Image>
+        <Image src={Byleth} width={dim} height={dim} alt="Byleth"></Image>
+        <Image src={MinMin} width={dim} height={dim} alt="Min Min"></Image>
+        <Image src={Steve} width={dim} height={dim} alt="Steve"></Image>
+        <Image src={Sephiroth} width={dim} height={dim} alt="Sephiroth"></Image>
+        <Image src={Pyra} width={dim} height={dim} alt="Pyra"></Image>
+        <Image src={Mythra} width={dim} height={dim} alt="Mythra"></Image>
+        <Image src={Kazuya} width={dim} height={dim} alt="Kazuya"></Image>
+        <Image src={Sora} width={dim} height={dim} alt="Sora"></Image>
+        
       </main>
     );
   }
