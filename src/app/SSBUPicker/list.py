@@ -4,5 +4,10 @@ command = input.split("**")
 
 for charRaw in open("./char.txt"):
     char = charRaw.strip()
-    print(command[0] + char + command[1])
+    output = ""
+    for i in range(len(command)-1):
+        output = output + command[0] + char
+    output = output + command[len(command)-1]
+
+    print(output)
     

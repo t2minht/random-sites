@@ -90,7 +90,7 @@ import MiiGun from '/public/assets/characters/Mii_Gun.png';
 
 import { MantineProvider, SimpleGrid, Flex, Image, Button } from '@mantine/core';
 import nextImage from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import style from '/src/app/SSBUPicker/page.module.css';
 
@@ -185,10 +185,286 @@ export default function Home() {
   const [showKazuya, setKazuya] = useState(true);
   const [showSora, setSora] = useState(true);
 
+  useEffect( () => {
+      let data = localStorage.getItem("charStates");
+      if (data !== null){
+        let state = JSON.parse(data);
+        console.log(state);
+        setMario(state.Mario);
+        setDonkeyKong(state.DonkeyKong);
+        setLink(state.Link);
+        setSamus(state.Samus);
+        setDarkSamus(state.DarkSamus);
+        setYoshi(state.Yoshi);
+        setKirby(state.Kirby);
+        setFox(state.Fox);
+        setPikachu(state.Pikachu);
+        setLuigi(state.Luigi);
+        setNess(state.Ness);
+        setCaptainFalcon(state.CaptainFalcon);
+        setJigglypuff(state.Jigglypuff);
+        setPeach(state.Peach);
+        setDaisy(state.Daisy);
+        setBowser(state.Bowser);
+        setIceClimbers(state.IceClimbers);
+        setSheik(state.Sheik);
+        setZelda(state.Zelda);
+        setDrMario(state.DrMario);
+        setPichu(state.Pichu);
+        setFalco(state.Falco);
+        setMarth(state.Marth);
+        setLucina(state.Lucina);
+        setYoungLink(state.YoungLink);
+        setGanondorf(state.Ganondorf);
+        setMewtwo(state.Mewtwo);
+        setRoy(state.Roy);
+        setChrom(state.Chrom);
+        setMrGameAndWatch(state.MrGameAndWatch);
+        setMetaKnight(state.MetaKnight);
+        setPit(state.Pit);
+        setDarkPit(state.DarkPit);
+        setZSS(state.ZSS);
+        setWario(state.Wario);
+        setSnake(state.Snake);
+        setIke(state.Ike);
+        setPokemonTrainer(state.PokemonTrainer);
+        setDiddyKing(state.DiddyKing);
+        setLucas(state.Lucas);
+        setSonic(state.Sonic);
+        setKingDedede(state.KingDedede);
+        setOlimar(state.Olimar);
+        setLucario(state.Lucario);
+        setROB(state.ROB);
+        setToonLink(state.ToonLink);
+        setWolf(state.Wolf);
+        setVillager(state.Villager);
+        setMegaman(state.Megaman);
+        setWiiFitTrainer(state.WiiFitTrainer);
+        setRosalina(state.Rosalina);
+        setMac(state.Mac);
+        setGreninja(state.Greninja);
+        setMiiFight(state.MiiFight);
+        setMiiSword(state.MiiSword);
+        setMiiGun(state.MiiGun);
+        setPalutena(state.Palutena);
+        setPacMan(state.PacMan);
+        setRobin(state.Robin);
+        setShulk(state.Shulk);
+        setBowserJr(state.BowserJr);
+        setDuckHunt(state.DuckHunt);
+        setRyu(state.Ryu);
+        setKen(state.Ken);
+        setCloud(state.Cloud);
+        setCorrin(state.Corrin);
+        setBayonetta(state.Bayonetta);
+        setInkling(state.Inkling);
+        setRidley(state.Ridley);
+        setSimon(state.Simon);
+        setRichter(state.Richter);
+        setKingKRool(state.KingKRool);
+        setIsabelle(state.Isabelle);
+        setIncineroar(state.Incineroar);
+        setPiranhaPlant(state.PiranhaPlant);
+        setJoker(state.Joker);
+        setHero(state.Hero);
+        setBanjoKazooie(state.BanjoKazooie);
+        setTerry(state.Terry);
+        setByleth(state.Byleth);
+        setMinMin(state.MinMin);
+        setSteve(state.Steve);
+        setSephiroth(state.Sephiroth);
+        setPyra(state.Pyra);
+        setMythra(state.Mythra);
+        setKazuya(state.Kazuya);
+        setSora(state.Sora);
+      }else{
+        let state = {
+          "Mario": true,
+          "DonkeyKong": true,
+          "Link": true,
+          "Samus": true,
+          "DarkSamus": true,
+          "Yoshi": true,
+          "Kirby": true,
+          "Fox": true,
+          "Pikachu": true,
+          "Luigi": true,
+          "Ness": true,
+          "CaptainFalcon": true,
+          "Jigglypuff": true,
+          "Peach": true,
+          "Daisy": true,
+          "Bowser": true,
+          "IceClimbers": true,
+          "Sheik": true,
+          "Zelda": true,
+          "DrMario": true,
+          "Pichu": true,
+          "Falco": true,
+          "Marth": true,
+          "Lucina": true,
+          "YoungLink": true,
+          "Ganondorf": true,
+          "Mewtwo": true,
+          "Roy": true,
+          "Chrom": true,
+          "MrGameAndWatch": true,
+          "MetaKnight": true,
+          "Pit": true,
+          "DarkPit": true,
+          "ZSS": true,
+          "Wario": true,
+          "Snake": true,
+          "Ike": true,
+          "PokemonTrainer": true,
+          "DiddyKing": true,
+          "Lucas": true,
+          "Sonic": true,
+          "KingDedede": true,
+          "Olimar": true,
+          "Lucario": true,
+          "ROB": true,
+          "ToonLink": true,
+          "Wolf": true,
+          "Villager": true,
+          "Megaman": true,
+          "WiiFitTrainer": true,
+          "Rosalina": true,
+          "Mac": true,
+          "Greninja": true,
+          "MiiFight": true,
+          "MiiSword": true,
+          "MiiGun": true,
+          "Palutena": true,
+          "PacMan": true,
+          "Robin": true,
+          "Shulk": true,
+          "BowserJr": true,
+          "DuckHunt": true,
+          "Ryu": true,
+          "Ken": true,
+          "Cloud": true,
+          "Corrin": true,
+          "Bayonetta": true,
+          "Inkling": true,
+          "Ridley": true,
+          "Simon": true,
+          "Richter": true,
+          "KingKRool": true,
+          "Isabelle": true,
+          "Incineroar": true,
+          "PiranhaPlant": true,
+          "Joker": true,
+          "Hero": true,
+          "BanjoKazooie": true,
+          "Terry": true,
+          "Byleth": true,
+          "MinMin": true,
+          "Steve": true,
+          "Sephiroth": true,
+          "Pyra": true,
+          "Mythra": true,
+          "Kazuya": true,
+          "Sora": true,
+        }
+        localStorage.setItem("charStates", JSON.stringify(state));
+      }
+  });
+
   var dim = 125;
 
 
   function reset(event){
+    let state = {
+      "Mario": true,
+      "DonkeyKong": true,
+      "Link": true,
+      "Samus": true,
+      "DarkSamus": true,
+      "Yoshi": true,
+      "Kirby": true,
+      "Fox": true,
+      "Pikachu": true,
+      "Luigi": true,
+      "Ness": true,
+      "CaptainFalcon": true,
+      "Jigglypuff": true,
+      "Peach": true,
+      "Daisy": true,
+      "Bowser": true,
+      "IceClimbers": true,
+      "Sheik": true,
+      "Zelda": true,
+      "DrMario": true,
+      "Pichu": true,
+      "Falco": true,
+      "Marth": true,
+      "Lucina": true,
+      "YoungLink": true,
+      "Ganondorf": true,
+      "Mewtwo": true,
+      "Roy": true,
+      "Chrom": true,
+      "MrGameAndWatch": true,
+      "MetaKnight": true,
+      "Pit": true,
+      "DarkPit": true,
+      "ZSS": true,
+      "Wario": true,
+      "Snake": true,
+      "Ike": true,
+      "PokemonTrainer": true,
+      "DiddyKing": true,
+      "Lucas": true,
+      "Sonic": true,
+      "KingDedede": true,
+      "Olimar": true,
+      "Lucario": true,
+      "ROB": true,
+      "ToonLink": true,
+      "Wolf": true,
+      "Villager": true,
+      "Megaman": true,
+      "WiiFitTrainer": true,
+      "Rosalina": true,
+      "Mac": true,
+      "Greninja": true,
+      "MiiFight": true,
+      "MiiSword": true,
+      "MiiGun": true,
+      "Palutena": true,
+      "PacMan": true,
+      "Robin": true,
+      "Shulk": true,
+      "BowserJr": true,
+      "DuckHunt": true,
+      "Ryu": true,
+      "Ken": true,
+      "Cloud": true,
+      "Corrin": true,
+      "Bayonetta": true,
+      "Inkling": true,
+      "Ridley": true,
+      "Simon": true,
+      "Richter": true,
+      "KingKRool": true,
+      "Isabelle": true,
+      "Incineroar": true,
+      "PiranhaPlant": true,
+      "Joker": true,
+      "Hero": true,
+      "BanjoKazooie": true,
+      "Terry": true,
+      "Byleth": true,
+      "MinMin": true,
+      "Steve": true,
+      "Sephiroth": true,
+      "Pyra": true,
+      "Mythra": true,
+      "Kazuya": true,
+      "Sora": true,
+    }
+    localStorage.setItem("charStates", JSON.stringify(state));
     setMario(true);
     setDonkeyKong(true);
     setLink(true);
@@ -277,6 +553,191 @@ export default function Home() {
     setKazuya(true);
     setSora(true);
   }
+  function setChar(char){
+    let data = localStorage.getItem("charStates");
+      if (data !== undefined){
+        let state = JSON.parse(data);
+        if(char == "Mario"){state.Mario = false;}
+        if(char == "DonkeyKong"){state.DonkeyKong = false;}
+        if(char == "Link"){state.Link = false;}
+        if(char == "Samus"){state.Samus = false;}
+        if(char == "DarkSamus"){state.DarkSamus = false;}
+        if(char == "Yoshi"){state.Yoshi = false;}
+        if(char == "Kirby"){state.Kirby = false;}
+        if(char == "Fox"){state.Fox = false;}
+        if(char == "Pikachu"){state.Pikachu = false;}
+        if(char == "Luigi"){state.Luigi = false;}
+        if(char == "Ness"){state.Ness = false;}
+        if(char == "CaptainFalcon"){state.CaptainFalcon = false;}
+        if(char == "Jigglypuff"){state.Jigglypuff = false;}
+        if(char == "Peach"){state.Peach = false;}
+        if(char == "Daisy"){state.Daisy = false;}
+        if(char == "Bowser"){state.Bowser = false;}
+        if(char == "IceClimbers"){state.IceClimbers = false;}
+        if(char == "Sheik"){state.Sheik = false;}
+        if(char == "Zelda"){state.Zelda = false;}
+        if(char == "DrMario"){state.DrMario = false;}
+        if(char == "Pichu"){state.Pichu = false;}
+        if(char == "Falco"){state.Falco = false;}
+        if(char == "Marth"){state.Marth = false;}
+        if(char == "Lucina"){state.Lucina = false;}
+        if(char == "YoungLink"){state.YoungLink = false;}
+        if(char == "Ganondorf"){state.Ganondorf = false;}
+        if(char == "Mewtwo"){state.Mewtwo = false;}
+        if(char == "Roy"){state.Roy = false;}
+        if(char == "Chrom"){state.Chrom = false;}
+        if(char == "MrGameAndWatch"){state.MrGameAndWatch = false;}
+        if(char == "MetaKnight"){state.MetaKnight = false;}
+        if(char == "Pit"){state.Pit = false;}
+        if(char == "DarkPit"){state.DarkPit = false;}
+        if(char == "ZSS"){state.ZSS = false;}
+        if(char == "Wario"){state.Wario = false;}
+        if(char == "Snake"){state.Snake = false;}
+        if(char == "Ike"){state.Ike = false;}
+        if(char == "PokemonTrainer"){state.PokemonTrainer = false;}
+        if(char == "DiddyKing"){state.DiddyKing = false;}
+        if(char == "Lucas"){state.Lucas = false;}
+        if(char == "Sonic"){state.Sonic = false;}
+        if(char == "KingDedede"){state.KingDedede = false;}
+        if(char == "Olimar"){state.Olimar = false;}
+        if(char == "Lucario"){state.Lucario = false;}
+        if(char == "ROB"){state.ROB = false;}
+        if(char == "ToonLink"){state.ToonLink = false;}
+        if(char == "Wolf"){state.Wolf = false;}
+        if(char == "Villager"){state.Villager = false;}
+        if(char == "Megaman"){state.Megaman = false;}
+        if(char == "WiiFitTrainer"){state.WiiFitTrainer = false;}
+        if(char == "Rosalina"){state.Rosalina = false;}
+        if(char == "Mac"){state.Mac = false;}
+        if(char == "Greninja"){state.Greninja = false;}
+        if(char == "MiiFight"){state.MiiFight = false;}
+        if(char == "MiiSword"){state.MiiSword = false;}
+        if(char == "MiiGun"){state.MiiGun = false;}
+        if(char == "Palutena"){state.Palutena = false;}
+        if(char == "PacMan"){state.PacMan = false;}
+        if(char == "Robin"){state.Robin = false;}
+        if(char == "Shulk"){state.Shulk = false;}
+        if(char == "BowserJr"){state.BowserJr = false;}
+        if(char == "DuckHunt"){state.DuckHunt = false;}
+        if(char == "Ryu"){state.Ryu = false;}
+        if(char == "Ken"){state.Ken = false;}
+        if(char == "Cloud"){state.Cloud = false;}
+        if(char == "Corrin"){state.Corrin = false;}
+        if(char == "Bayonetta"){state.Bayonetta = false;}
+        if(char == "Inkling"){state.Inkling = false;}
+        if(char == "Ridley"){state.Ridley = false;}
+        if(char == "Simon"){state.Simon = false;}
+        if(char == "Richter"){state.Richter = false;}
+        if(char == "KingKRool"){state.KingKRool = false;}
+        if(char == "Isabelle"){state.Isabelle = false;}
+        if(char == "Incineroar"){state.Incineroar = false;}
+        if(char == "PiranhaPlant"){state.PiranhaPlant = false;}
+        if(char == "Joker"){state.Joker = false;}
+        if(char == "Hero"){state.Hero = false;}
+        if(char == "BanjoKazooie"){state.BanjoKazooie = false;}
+        if(char == "Terry"){state.Terry = false;}
+        if(char == "Byleth"){state.Byleth = false;}
+        if(char == "MinMin"){state.MinMin = false;}
+        if(char == "Steve"){state.Steve = false;}
+        if(char == "Sephiroth"){state.Sephiroth = false;}
+        if(char == "Pyra"){state.Pyra = false;}
+        if(char == "Mythra"){state.Mythra = false;}
+        if(char == "Kazuya"){state.Kazuya = false;}
+        if(char == "Sora"){state.Sora = false;}
+
+        setMario(state.Mario);
+        setDonkeyKong(state.DonkeyKong);
+        setLink(state.Link);
+        setSamus(state.Samus);
+        setDarkSamus(state.DarkSamus);
+        setYoshi(state.Yoshi);
+        setKirby(state.Kirby);
+        setFox(state.Fox);
+        setPikachu(state.Pikachu);
+        setLuigi(state.Luigi);
+        setNess(state.Ness);
+        setCaptainFalcon(state.CaptainFalcon);
+        setJigglypuff(state.Jigglypuff);
+        setPeach(state.Peach);
+        setDaisy(state.Daisy);
+        setBowser(state.Bowser);
+        setIceClimbers(state.IceClimbers);
+        setSheik(state.Sheik);
+        setZelda(state.Zelda);
+        setDrMario(state.DrMario);
+        setPichu(state.Pichu);
+        setFalco(state.Falco);
+        setMarth(state.Marth);
+        setLucina(state.Lucina);
+        setYoungLink(state.YoungLink);
+        setGanondorf(state.Ganondorf);
+        setMewtwo(state.Mewtwo);
+        setRoy(state.Roy);
+        setChrom(state.Chrom);
+        setMrGameAndWatch(state.MrGameAndWatch);
+        setMetaKnight(state.MetaKnight);
+        setPit(state.Pit);
+        setDarkPit(state.DarkPit);
+        setZSS(state.ZSS);
+        setWario(state.Wario);
+        setSnake(state.Snake);
+        setIke(state.Ike);
+        setPokemonTrainer(state.PokemonTrainer);
+        setDiddyKing(state.DiddyKing);
+        setLucas(state.Lucas);
+        setSonic(state.Sonic);
+        setKingDedede(state.KingDedede);
+        setOlimar(state.Olimar);
+        setLucario(state.Lucario);
+        setROB(state.ROB);
+        setToonLink(state.ToonLink);
+        setWolf(state.Wolf);
+        setVillager(state.Villager);
+        setMegaman(state.Megaman);
+        setWiiFitTrainer(state.WiiFitTrainer);
+        setRosalina(state.Rosalina);
+        setMac(state.Mac);
+        setGreninja(state.Greninja);
+        setMiiFight(state.MiiFight);
+        setMiiSword(state.MiiSword);
+        setMiiGun(state.MiiGun);
+        setPalutena(state.Palutena);
+        setPacMan(state.PacMan);
+        setRobin(state.Robin);
+        setShulk(state.Shulk);
+        setBowserJr(state.BowserJr);
+        setDuckHunt(state.DuckHunt);
+        setRyu(state.Ryu);
+        setKen(state.Ken);
+        setCloud(state.Cloud);
+        setCorrin(state.Corrin);
+        setBayonetta(state.Bayonetta);
+        setInkling(state.Inkling);
+        setRidley(state.Ridley);
+        setSimon(state.Simon);
+        setRichter(state.Richter);
+        setKingKRool(state.KingKRool);
+        setIsabelle(state.Isabelle);
+        setIncineroar(state.Incineroar);
+        setPiranhaPlant(state.PiranhaPlant);
+        setJoker(state.Joker);
+        setHero(state.Hero);
+        setBanjoKazooie(state.BanjoKazooie);
+        setTerry(state.Terry);
+        setByleth(state.Byleth);
+        setMinMin(state.MinMin);
+        setSteve(state.Steve);
+        setSephiroth(state.Sephiroth);
+        setPyra(state.Pyra);
+        setMythra(state.Mythra);
+        setKazuya(state.Kazuya);
+        setSora(state.Sora);
+        
+        localStorage.setItem("charStates", JSON.stringify(state));
+
+        console.log(state);
+      }
+  }
 
   return (
     <main>
@@ -290,93 +751,93 @@ export default function Home() {
         <SimpleGrid
         cols= {4}
         >
-          {showMario          && <div> <Image component= {nextImage} onClick = {() => {console.log("Mario         ");setMario(false);}}src={Mario         } width={dim} height={dim} alt="Mario"></Image> </div>}
-          {showDonkeyKong     && <div> <Image component= {nextImage} onClick = {() => {console.log("DonkeyKong    ");setDonkeyKong(false);}}src={DonkeyKong    } width={dim} height={dim} alt="DK"></Image> </div>}
-          {showLink           && <div> <Image component= {nextImage} onClick = {() => {console.log("Link          ");setLink(false);}}src={Link          } width={dim} height={dim} alt="Link"></Image> </div>}
-          {showSamus          && <div> <Image component= {nextImage} onClick = {() => {console.log("Samus         ");setSamus(false);}}src={Samus         } width={dim} height={dim} alt="Samus"></Image> </div>}
-          {showDarkSamus      && <div> <Image component= {nextImage} onClick = {() => {console.log("DarkSamus     ");setDarkSamus(false);}}src={DarkSamus     } width={dim} height={dim} alt="Dark Samus"></Image> </div>}
-          {showYoshi          && <div> <Image component= {nextImage} onClick = {() => {console.log("Yoshi         ");setYoshi(false);}}src={Yoshi         } width={dim} height={dim} alt="Yoshi"></Image> </div>}
-          {showKirby          && <div> <Image component= {nextImage} onClick = {() => {console.log("Kirby         ");setKirby(false);}}src={Kirby         } width={dim} height={dim} alt="Kirby"></Image> </div>}
-          {showFox            && <div> <Image component= {nextImage} onClick = {() => {console.log("Fox           ");setFox(false);}}src={Fox           } width={dim} height={dim} alt="Fox"></Image> </div>}
-          {showPikachu        && <div> <Image component= {nextImage} onClick = {() => {console.log("Pikachu       ");setPikachu(false);}}src={Pikachu       } width={dim} height={dim} alt="Pikachu"></Image> </div>}
-          {showLuigi          && <div> <Image component= {nextImage} onClick = {() => {console.log("Luigi         ");setLuigi(false);}}src={Luigi         } width={dim} height={dim} alt="Luigi"></Image> </div>}
-          {showNess           && <div> <Image component= {nextImage} onClick = {() => {console.log("Ness          ");setNess(false);}}src={Ness          } width={dim} height={dim} alt="Ness"></Image> </div>}
-          {showCaptainFalcon  && <div> <Image component= {nextImage} onClick = {() => {console.log("CaptainFalcon ");setCaptainFalcon(false);}}src={CaptainFalcon } width={dim} height={dim} alt="Captain Falcon"></Image> </div>}
-          {showJigglypuff     && <div> <Image component= {nextImage} onClick = {() => {console.log("Jigglypuff    ");setJigglypuff(false);}}src={Jigglypuff    } width={dim} height={dim} alt="Jigglypuff"></Image> </div>}
-          {showPeach          && <div> <Image component= {nextImage} onClick = {() => {console.log("Peach         ");setPeach(false);}}src={Peach         } width={dim} height={dim} alt="Peach"></Image> </div>}
-          {showDaisy          && <div> <Image component= {nextImage} onClick = {() => {console.log("Daisy         ");setDaisy(false);}}src={Daisy         } width={dim} height={dim} alt="Daisy"></Image> </div>}
-          {showBowser         && <div> <Image component= {nextImage} onClick = {() => {console.log("Bowser        ");setBowser(false);}}src={Bowser        } width={dim} height={dim} alt="Bowser"></Image> </div>}
-          {showIceClimbers    && <div> <Image component= {nextImage} onClick = {() => {console.log("IceClimbers   ");setIceClimbers(false);}}src={IceClimbers   } width={dim} height={dim} alt="Ice Climbers"></Image> </div>}
-          {showSheik          && <div> <Image component= {nextImage} onClick = {() => {console.log("Sheik         ");setSheik(false);}}src={Sheik         } width={dim} height={dim} alt="Sheik"></Image> </div>}
-          {showZelda          && <div> <Image component= {nextImage} onClick = {() => {console.log("Zelda         ");setZelda(false);}}src={Zelda         } width={dim} height={dim} alt="Zelda"></Image> </div>}
-          {showDrMario        && <div> <Image component= {nextImage} onClick = {() => {console.log("DrMario       ");setDrMario(false);}}src={DrMario       } width={dim} height={dim} alt="Dr. Mario"></Image> </div>}
-          {showPichu          && <div> <Image component= {nextImage} onClick = {() => {console.log("Pichu         ");setPichu(false);}}src={Pichu         } width={dim} height={dim} alt="Pichu"></Image> </div>}
-          {showFalco          && <div> <Image component= {nextImage} onClick = {() => {console.log("Falco         ");setFalco(false);}}src={Falco         } width={dim} height={dim} alt="Falco"></Image> </div>}
-          {showMarth          && <div> <Image component= {nextImage} onClick = {() => {console.log("Marth         ");setMarth(false);}}src={Marth         } width={dim} height={dim} alt="Marth"></Image> </div>}
-          {showLucina         && <div> <Image component= {nextImage} onClick = {() => {console.log("Lucina        ");setLucina(false);}}src={Lucina        } width={dim} height={dim} alt="Lucina"></Image> </div>}
-          {showYoungLink      && <div> <Image component= {nextImage} onClick = {() => {console.log("YoungLink     ");setYoungLink(false);}}src={YoungLink     } width={dim} height={dim} alt="Young Link"></Image> </div>}
-          {showGanondorf      && <div> <Image component= {nextImage} onClick = {() => {console.log("Ganondorf     ");setGanondorf(false);}}src={Ganondorf     } width={dim} height={dim} alt="Ganondor"></Image> </div>}
-          {showMewtwo         && <div> <Image component= {nextImage} onClick = {() => {console.log("Mewtwo        ");setMewtwo(false);}}src={Mewtwo        } width={dim} height={dim} alt="Mewtwo"></Image> </div>}
-          {showRoy            && <div> <Image component= {nextImage} onClick = {() => {console.log("Roy           ");setRoy(false);}}src={Roy           } width={dim} height={dim} alt="Roy"></Image> </div>}
-          {showChrom          && <div> <Image component= {nextImage} onClick = {() => {console.log("Chrom         ");setChrom(false);}}src={Chrom         } width={dim} height={dim} alt="Chrom"></Image> </div>}
-          {showMrGameAndWatch && <div> <Image component= {nextImage} onClick = {() => {console.log("MrGameAndWatch");setMrGameAndWatch(false);}}src={MrGameAndWatch} width={dim} height={dim} alt="Mr. Game & Watch"></Image> </div>}
-          {showMetaKnight     && <div> <Image component= {nextImage} onClick = {() => {console.log("MetaKnight    ");setMetaKnight(false);}}src={MetaKnight    } width={dim} height={dim} alt="Meta Knight"></Image> </div>}
-          {showPit            && <div> <Image component= {nextImage} onClick = {() => {console.log("Pit           ");setPit(false);}}src={Pit           } width={dim} height={dim} alt="Pit"></Image> </div>}
-          {showDarkPit        && <div> <Image component= {nextImage} onClick = {() => {console.log("DarkPit       ");setDarkPit(false);}}src={DarkPit       } width={dim} height={dim} alt="Dark Pit"></Image> </div>}
-          {showZSS            && <div> <Image component= {nextImage} onClick = {() => {console.log("ZSS           ");setZSS(false);}}src={ZSS           } width={dim} height={dim} alt="Zero Suit Samus"></Image> </div>}
-          {showWario          && <div> <Image component= {nextImage} onClick = {() => {console.log("Wario         ");setWario(false);}}src={Wario         } width={dim} height={dim} alt="Wario"></Image> </div>}
-          {showSnake          && <div> <Image component= {nextImage} onClick = {() => {console.log("Snake         ");setSnake(false);}}src={Snake         } width={dim} height={dim} alt="Snake"></Image> </div>}
-          {showIke            && <div> <Image component= {nextImage} onClick = {() => {console.log("Ike           ");setIke(false);}}src={Ike           } width={dim} height={dim} alt="Ike"></Image> </div>}
-          {showPokemonTrainer && <div> <Image component= {nextImage} onClick = {() => {console.log("PokemonTrainer");setPokemonTrainer(false);}}src={PokemonTrainer} width={dim} height={dim} alt="Pokémon Trainer"></Image> </div>}
-          {showDiddyKing      && <div> <Image component= {nextImage} onClick = {() => {console.log("DiddyKing     ");setDiddyKing(false);}}src={DiddyKing     } width={dim} height={dim} alt="Diddy Kong"></Image> </div>}
-          {showLucas          && <div> <Image component= {nextImage} onClick = {() => {console.log("Lucas         ");setLucas(false);}}src={Lucas         } width={dim} height={dim} alt="Lucas"></Image> </div>}
-          {showSonic          && <div> <Image component= {nextImage} onClick = {() => {console.log("Sonic         ");setSonic(false);}}src={Sonic         } width={dim} height={dim} alt="Sonic"></Image> </div>}
-          {showKingDedede     && <div> <Image component= {nextImage} onClick = {() => {console.log("KingDedede    ");setKingDedede(false);}}src={KingDedede    } width={dim} height={dim} alt="King Dedede"></Image> </div>}
-          {showOlimar         && <div> <Image component= {nextImage} onClick = {() => {console.log("Olimar        ");setOlimar(false);}}src={Olimar        } width={dim} height={dim} alt="Olimar"></Image> </div>}
-          {showLucario        && <div> <Image component= {nextImage} onClick = {() => {console.log("Lucario       ");setLucario(false);}}src={Lucario       } width={dim} height={dim} alt="Lucario"></Image> </div>}
-          {showROB            && <div> <Image component= {nextImage} onClick = {() => {console.log("ROB           ");setROB(false);}}src={ROB           } width={dim} height={dim} alt="R.O.B."></Image> </div>}
-          {showToonLink       && <div> <Image component= {nextImage} onClick = {() => {console.log("ToonLink      ");setToonLink(false);}}src={ToonLink      } width={dim} height={dim} alt="Toon Link"></Image> </div>}
-          {showWolf           && <div> <Image component= {nextImage} onClick = {() => {console.log("Wolf          ");setWolf(false);}}src={Wolf          } width={dim} height={dim} alt="Wolf"></Image> </div>}
-          {showVillager       && <div> <Image component= {nextImage} onClick = {() => {console.log("Villager      ");setVillager(false);}}src={Villager      } width={dim} height={dim} alt="Villager"></Image> </div>}
-          {showMegaman        && <div> <Image component= {nextImage} onClick = {() => {console.log("Megaman       ");setMegaman(false);}}src={Megaman       } width={dim} height={dim} alt="Mega Man"></Image> </div>}
-          {showWiiFitTrainer  && <div> <Image component= {nextImage} onClick = {() => {console.log("WiiFitTrainer ");setWiiFitTrainer(false);}}src={WiiFitTrainer } width={dim} height={dim} alt="Wii Fit"></Image> </div>}
-          {showRosalina       && <div> <Image component= {nextImage} onClick = {() => {console.log("Rosalina      ");setRosalina(false);}}src={Rosalina      } width={dim} height={dim} alt="Rosalina"></Image> </div>}
-          {showMac            && <div> <Image component= {nextImage} onClick = {() => {console.log("Mac           ");setMac(false);}}src={Mac           } width={dim} height={dim} alt="Little Mac"></Image> </div>}
-          {showGreninja       && <div> <Image component= {nextImage} onClick = {() => {console.log("Greninja      ");setGreninja(false);}}src={Greninja      } width={dim} height={dim} alt="Greninja"></Image> </div>}
-          {showMiiFight       && <div> <Image component= {nextImage} onClick = {() => {console.log("MiiFight      ");setMiiFight(false);}}src={MiiFight      } width={dim} height={dim} alt="Mii Brawler"></Image> </div>}
-          {showMiiSword       && <div> <Image component= {nextImage} onClick = {() => {console.log("MiiSword      ");setMiiSword(false);}}src={MiiSword      } width={dim} height={dim} alt="Mii Sowrdfighter"></Image> </div>}
-          {showMiiGun         && <div> <Image component= {nextImage} onClick = {() => {console.log("MiiGun        ");setMiiGun(false);}}src={MiiGun        } width={dim} height={dim} alt="Mii Gunner"></Image> </div>}
-          {showPalutena       && <div> <Image component= {nextImage} onClick = {() => {console.log("Palutena      ");setPalutena(false);}}src={Palutena      } width={dim} height={dim} alt="Palutena"></Image> </div>}
-          {showPacMan         && <div> <Image component= {nextImage} onClick = {() => {console.log("PacMan        ");setPacMan(false);}}src={PacMan        } width={dim} height={dim} alt="Pac-Man"></Image> </div>}
-          {showRobin          && <div> <Image component= {nextImage} onClick = {() => {console.log("Robin         ");setRobin(false);}}src={Robin         } width={dim} height={dim} alt="Robin"></Image> </div>}
-          {showShulk          && <div> <Image component= {nextImage} onClick = {() => {console.log("Shulk         ");setShulk(false);}}src={Shulk         } width={dim} height={dim} alt="Shulk"></Image> </div>}
-          {showBowserJr       && <div> <Image component= {nextImage} onClick = {() => {console.log("BowserJr      ");setBowserJr(false);}}src={BowserJr      } width={dim} height={dim} alt="Bowser Jr."></Image> </div>}
-          {showDuckHunt       && <div> <Image component= {nextImage} onClick = {() => {console.log("DuckHunt      ");setDuckHunt(false);}}src={DuckHunt      } width={dim} height={dim} alt="Duck Hunt"></Image> </div>}
-          {showRyu            && <div> <Image component= {nextImage} onClick = {() => {console.log("Ryu           ");setRyu(false);}}src={Ryu           } width={dim} height={dim} alt="Ryu"></Image> </div>}
-          {showKen            && <div> <Image component= {nextImage} onClick = {() => {console.log("Ken           ");setKen(false);}}src={Ken           } width={dim} height={dim} alt="Ken"></Image> </div>}
-          {showCloud          && <div> <Image component= {nextImage} onClick = {() => {console.log("Cloud         ");setCloud(false);}}src={Cloud         } width={dim} height={dim} alt="Cloud"></Image> </div>}
-          {showCorrin         && <div> <Image component= {nextImage} onClick = {() => {console.log("Corrin        ");setCorrin(false);}}src={Corrin        } width={dim} height={dim} alt="Corrin"></Image> </div>}
-          {showBayonetta      && <div> <Image component= {nextImage} onClick = {() => {console.log("Bayonetta     ");setBayonetta(false);}}src={Bayonetta     } width={dim} height={dim} alt="Bayonetta"></Image> </div>}
-          {showInkling        && <div> <Image component= {nextImage} onClick = {() => {console.log("Inkling       ");setInkling(false);}}src={Inkling       } width={dim} height={dim} alt="Inkling"></Image> </div>}
-          {showRidley         && <div> <Image component= {nextImage} onClick = {() => {console.log("Ridley        ");setRidley(false);}}src={Ridley        } width={dim} height={dim} alt="Ridley"></Image> </div>}
-          {showSimon          && <div> <Image component= {nextImage} onClick = {() => {console.log("Simon         ");setSimon(false);}}src={Simon         } width={dim} height={dim} alt="Simon"></Image> </div>}
-          {showRichter        && <div> <Image component= {nextImage} onClick = {() => {console.log("Richter       ");setRichter(false);}}src={Richter       } width={dim} height={dim} alt="Richter"></Image> </div>}
-          {showKingKRool      && <div> <Image component= {nextImage} onClick = {() => {console.log("KingKRool     ");setKingKRool(false);}}src={KingKRool     } width={dim} height={dim} alt="King K. Rool"></Image> </div>}
-          {showIsabelle       && <div> <Image component= {nextImage} onClick = {() => {console.log("Isabelle      ");setIsabelle(false);}}src={Isabelle      } width={dim} height={dim} alt="Isabelle"></Image> </div>}
-          {showIncineroar     && <div> <Image component= {nextImage} onClick = {() => {console.log("Incineroar    ");setIncineroar(false);}}src={Incineroar    } width={dim} height={dim} alt="Incineroar"></Image> </div>}
-          {showPiranhaPlant   && <div> <Image component= {nextImage} onClick = {() => {console.log("PiranhaPlant  ");setPiranhaPlant(false);}}src={PiranhaPlant  } width={dim} height={dim} alt="Piranha Plant"></Image> </div>}
-          {showJoker          && <div> <Image component= {nextImage} onClick = {() => {console.log("Joker         ");setJoker(false);}}src={Joker         } width={dim} height={dim} alt="Joker"></Image> </div>}
-          {showHero           && <div> <Image component= {nextImage} onClick = {() => {console.log("Hero          ");setHero(false);}}src={Hero          } width={dim} height={dim} alt="Hero"></Image> </div>}
-          {showBanjoKazooie   && <div> <Image component= {nextImage} onClick = {() => {console.log("BanjoKazooie  ");setBanjoKazooie(false);}}src={BanjoKazooie  } width={dim} height={dim} alt="Banjo & Kazooie"></Image> </div>}
-          {showTerry          && <div> <Image component= {nextImage} onClick = {() => {console.log("Terry         ");setTerry(false);}}src={Terry         } width={dim} height={dim} alt="Terry"></Image> </div>}
-          {showByleth         && <div> <Image component= {nextImage} onClick = {() => {console.log("Byleth        ");setByleth(false);}}src={Byleth        } width={dim} height={dim} alt="Byleth"></Image> </div>}
-          {showMinMin         && <div> <Image component= {nextImage} onClick = {() => {console.log("MinMin        ");setMinMin(false);}}src={MinMin        } width={dim} height={dim} alt="Min Min"></Image> </div>}
-          {showSteve          && <div> <Image component= {nextImage} onClick = {() => {console.log("Steve         ");setSteve(false);}}src={Steve         } width={dim} height={dim} alt="Steve"></Image> </div>}
-          {showSephiroth      && <div> <Image component= {nextImage} onClick = {() => {console.log("Sephiroth     ");setSephiroth(false);}}src={Sephiroth     } width={dim} height={dim} alt="Sephiroth"></Image> </div>}
-          {showPyra           && <div> <Image component= {nextImage} onClick = {() => {console.log("Pyra          ");setPyra(false);}}src={Pyra          } width={dim} height={dim} alt="Pyra"></Image> </div>}
-          {showMythra         && <div> <Image component= {nextImage} onClick = {() => {console.log("Mythra        ");setMythra(false);}}src={Mythra        } width={dim} height={dim} alt="Mythra"></Image> </div>}
-          {showKazuya         && <div> <Image component= {nextImage} onClick = {() => {console.log("Kazuya        ");setKazuya(false);}}src={Kazuya        } width={dim} height={dim} alt="Kazuya"></Image> </div>}
-          {showSora           && <div> <Image component= {nextImage} onClick = {() => {console.log("Sora          ");setSora(false);}}src={Sora          } width={dim} height={dim} alt="Sora"></Image> </div>}
+          {showMario          && <div> <Image component= {nextImage} onClick = {() => {console.log("Mario         "); setChar("Mario");}}src={Mario         } width={dim} height={dim} alt="Mario"></Image> </div>}
+          {showDonkeyKong     && <div> <Image component= {nextImage} onClick = {() => {console.log("DonkeyKong    "); setChar("DonkeyKong");}}src={DonkeyKong    } width={dim} height={dim} alt="DK"></Image> </div>}
+          {showLink           && <div> <Image component= {nextImage} onClick = {() => {console.log("Link          "); setChar("Link");}}src={Link          } width={dim} height={dim} alt="Link"></Image> </div>}
+          {showSamus          && <div> <Image component= {nextImage} onClick = {() => {console.log("Samus         "); setChar("Samus");}}src={Samus         } width={dim} height={dim} alt="Samus"></Image> </div>}
+          {showDarkSamus      && <div> <Image component= {nextImage} onClick = {() => {console.log("DarkSamus     "); setChar("DarkSamus");}}src={DarkSamus     } width={dim} height={dim} alt="Dark Samus"></Image> </div>}
+          {showYoshi          && <div> <Image component= {nextImage} onClick = {() => {console.log("Yoshi         "); setChar("Yoshi");}}src={Yoshi         } width={dim} height={dim} alt="Yoshi"></Image> </div>}
+          {showKirby          && <div> <Image component= {nextImage} onClick = {() => {console.log("Kirby         "); setChar("Kirby");}}src={Kirby         } width={dim} height={dim} alt="Kirby"></Image> </div>}
+          {showFox            && <div> <Image component= {nextImage} onClick = {() => {console.log("Fox           "); setChar("Fox");}}src={Fox           } width={dim} height={dim} alt="Fox"></Image> </div>}
+          {showPikachu        && <div> <Image component= {nextImage} onClick = {() => {console.log("Pikachu       "); setChar("Pikachu");}}src={Pikachu       } width={dim} height={dim} alt="Pikachu"></Image> </div>}
+          {showLuigi          && <div> <Image component= {nextImage} onClick = {() => {console.log("Luigi         "); setChar("Luigi");}}src={Luigi         } width={dim} height={dim} alt="Luigi"></Image> </div>}
+          {showNess           && <div> <Image component= {nextImage} onClick = {() => {console.log("Ness          "); setChar("Ness");}}src={Ness          } width={dim} height={dim} alt="Ness"></Image> </div>}
+          {showCaptainFalcon  && <div> <Image component= {nextImage} onClick = {() => {console.log("CaptainFalcon "); setChar("CaptainFalcon");}}src={CaptainFalcon } width={dim} height={dim} alt="Captain Falcon"></Image> </div>}
+          {showJigglypuff     && <div> <Image component= {nextImage} onClick = {() => {console.log("Jigglypuff    "); setChar("Jigglypuff");}}src={Jigglypuff    } width={dim} height={dim} alt="Jigglypuff"></Image> </div>}
+          {showPeach          && <div> <Image component= {nextImage} onClick = {() => {console.log("Peach         "); setChar("Peach");}}src={Peach         } width={dim} height={dim} alt="Peach"></Image> </div>}
+          {showDaisy          && <div> <Image component= {nextImage} onClick = {() => {console.log("Daisy         "); setChar("Daisy");}}src={Daisy         } width={dim} height={dim} alt="Daisy"></Image> </div>}
+          {showBowser         && <div> <Image component= {nextImage} onClick = {() => {console.log("Bowser        "); setChar("Bowser");}}src={Bowser        } width={dim} height={dim} alt="Bowser"></Image> </div>}
+          {showIceClimbers    && <div> <Image component= {nextImage} onClick = {() => {console.log("IceClimbers   "); setChar("IceClimbers");}}src={IceClimbers   } width={dim} height={dim} alt="Ice Climbers"></Image> </div>}
+          {showSheik          && <div> <Image component= {nextImage} onClick = {() => {console.log("Sheik         "); setChar("Sheik");}}src={Sheik         } width={dim} height={dim} alt="Sheik"></Image> </div>}
+          {showZelda          && <div> <Image component= {nextImage} onClick = {() => {console.log("Zelda         "); setChar("Zelda");}}src={Zelda         } width={dim} height={dim} alt="Zelda"></Image> </div>}
+          {showDrMario        && <div> <Image component= {nextImage} onClick = {() => {console.log("DrMario       "); setChar("DrMario");}}src={DrMario       } width={dim} height={dim} alt="Dr. Mario"></Image> </div>}
+          {showPichu          && <div> <Image component= {nextImage} onClick = {() => {console.log("Pichu         "); setChar("Pichu");}}src={Pichu         } width={dim} height={dim} alt="Pichu"></Image> </div>}
+          {showFalco          && <div> <Image component= {nextImage} onClick = {() => {console.log("Falco         "); setChar("Falco");}}src={Falco         } width={dim} height={dim} alt="Falco"></Image> </div>}
+          {showMarth          && <div> <Image component= {nextImage} onClick = {() => {console.log("Marth         "); setChar("Marth");}}src={Marth         } width={dim} height={dim} alt="Marth"></Image> </div>}
+          {showLucina         && <div> <Image component= {nextImage} onClick = {() => {console.log("Lucina        "); setChar("Lucina");}}src={Lucina        } width={dim} height={dim} alt="Lucina"></Image> </div>}
+          {showYoungLink      && <div> <Image component= {nextImage} onClick = {() => {console.log("YoungLink     "); setChar("YoungLink");}}src={YoungLink     } width={dim} height={dim} alt="Young Link"></Image> </div>}
+          {showGanondorf      && <div> <Image component= {nextImage} onClick = {() => {console.log("Ganondorf     "); setChar("Ganondorf");}}src={Ganondorf     } width={dim} height={dim} alt="Ganondor"></Image> </div>}
+          {showMewtwo         && <div> <Image component= {nextImage} onClick = {() => {console.log("Mewtwo        "); setChar("Mewtwo");}}src={Mewtwo        } width={dim} height={dim} alt="Mewtwo"></Image> </div>}
+          {showRoy            && <div> <Image component= {nextImage} onClick = {() => {console.log("Roy           "); setChar("Roy");}}src={Roy           } width={dim} height={dim} alt="Roy"></Image> </div>}
+          {showChrom          && <div> <Image component= {nextImage} onClick = {() => {console.log("Chrom         "); setChar("Chrom");}}src={Chrom         } width={dim} height={dim} alt="Chrom"></Image> </div>}
+          {showMrGameAndWatch && <div> <Image component= {nextImage} onClick = {() => {console.log("MrGameAndWatch"); setChar("MrGameAndWatch");}}src={MrGameAndWatch} width={dim} height={dim} alt="Mr. Game & Watch"></Image> </div>}
+          {showMetaKnight     && <div> <Image component= {nextImage} onClick = {() => {console.log("MetaKnight    "); setChar("MetaKnight");}}src={MetaKnight    } width={dim} height={dim} alt="Meta Knight"></Image> </div>}
+          {showPit            && <div> <Image component= {nextImage} onClick = {() => {console.log("Pit           "); setChar("Pit");}}src={Pit           } width={dim} height={dim} alt="Pit"></Image> </div>}
+          {showDarkPit        && <div> <Image component= {nextImage} onClick = {() => {console.log("DarkPit       "); setChar("DarkPit");}}src={DarkPit       } width={dim} height={dim} alt="Dark Pit"></Image> </div>}
+          {showZSS            && <div> <Image component= {nextImage} onClick = {() => {console.log("ZSS           "); setChar("ZSS");}}src={ZSS           } width={dim} height={dim} alt="Zero Suit Samus"></Image> </div>}
+          {showWario          && <div> <Image component= {nextImage} onClick = {() => {console.log("Wario         "); setChar("Wario");}}src={Wario         } width={dim} height={dim} alt="Wario"></Image> </div>}
+          {showSnake          && <div> <Image component= {nextImage} onClick = {() => {console.log("Snake         "); setChar("Snake");}}src={Snake         } width={dim} height={dim} alt="Snake"></Image> </div>}
+          {showIke            && <div> <Image component= {nextImage} onClick = {() => {console.log("Ike           "); setChar("Ike");}}src={Ike           } width={dim} height={dim} alt="Ike"></Image> </div>}
+          {showPokemonTrainer && <div> <Image component= {nextImage} onClick = {() => {console.log("PokemonTrainer"); setChar("PokemonTrainer");}}src={PokemonTrainer} width={dim} height={dim} alt="Pokémon Trainer"></Image> </div>}
+          {showDiddyKing      && <div> <Image component= {nextImage} onClick = {() => {console.log("DiddyKing     "); setChar("DiddyKing");}}src={DiddyKing     } width={dim} height={dim} alt="Diddy Kong"></Image> </div>}
+          {showLucas          && <div> <Image component= {nextImage} onClick = {() => {console.log("Lucas         "); setChar("Lucas");}}src={Lucas         } width={dim} height={dim} alt="Lucas"></Image> </div>}
+          {showSonic          && <div> <Image component= {nextImage} onClick = {() => {console.log("Sonic         "); setChar("Sonic");}}src={Sonic         } width={dim} height={dim} alt="Sonic"></Image> </div>}
+          {showKingDedede     && <div> <Image component= {nextImage} onClick = {() => {console.log("KingDedede    "); setChar("KingDedede");}}src={KingDedede    } width={dim} height={dim} alt="King Dedede"></Image> </div>}
+          {showOlimar         && <div> <Image component= {nextImage} onClick = {() => {console.log("Olimar        "); setChar("Olimar");}}src={Olimar        } width={dim} height={dim} alt="Olimar"></Image> </div>}
+          {showLucario        && <div> <Image component= {nextImage} onClick = {() => {console.log("Lucario       "); setChar("Lucario");}}src={Lucario       } width={dim} height={dim} alt="Lucario"></Image> </div>}
+          {showROB            && <div> <Image component= {nextImage} onClick = {() => {console.log("ROB           "); setChar("ROB");}}src={ROB           } width={dim} height={dim} alt="R.O.B."></Image> </div>}
+          {showToonLink       && <div> <Image component= {nextImage} onClick = {() => {console.log("ToonLink      "); setChar("ToonLink");}}src={ToonLink      } width={dim} height={dim} alt="Toon Link"></Image> </div>}
+          {showWolf           && <div> <Image component= {nextImage} onClick = {() => {console.log("Wolf          "); setChar("Wolf");}}src={Wolf          } width={dim} height={dim} alt="Wolf"></Image> </div>}
+          {showVillager       && <div> <Image component= {nextImage} onClick = {() => {console.log("Villager      "); setChar("Villager");}}src={Villager      } width={dim} height={dim} alt="Villager"></Image> </div>}
+          {showMegaman        && <div> <Image component= {nextImage} onClick = {() => {console.log("Megaman       "); setChar("Megaman");}}src={Megaman       } width={dim} height={dim} alt="Mega Man"></Image> </div>}
+          {showWiiFitTrainer  && <div> <Image component= {nextImage} onClick = {() => {console.log("WiiFitTrainer "); setChar("WiiFitTrainer");}}src={WiiFitTrainer } width={dim} height={dim} alt="Wii Fit"></Image> </div>}
+          {showRosalina       && <div> <Image component= {nextImage} onClick = {() => {console.log("Rosalina      "); setChar("Rosalina");}}src={Rosalina      } width={dim} height={dim} alt="Rosalina"></Image> </div>}
+          {showMac            && <div> <Image component= {nextImage} onClick = {() => {console.log("Mac           "); setChar("Mac");}}src={Mac           } width={dim} height={dim} alt="Little Mac"></Image> </div>}
+          {showGreninja       && <div> <Image component= {nextImage} onClick = {() => {console.log("Greninja      "); setChar("Greninja");}}src={Greninja      } width={dim} height={dim} alt="Greninja"></Image> </div>}
+          {showMiiFight       && <div> <Image component= {nextImage} onClick = {() => {console.log("MiiFight      "); setChar("MiiFight");}}src={MiiFight      } width={dim} height={dim} alt="Mii Brawler"></Image> </div>}
+          {showMiiSword       && <div> <Image component= {nextImage} onClick = {() => {console.log("MiiSword      "); setChar("MiiSword");}}src={MiiSword      } width={dim} height={dim} alt="Mii Sowrdfighter"></Image> </div>}
+          {showMiiGun         && <div> <Image component= {nextImage} onClick = {() => {console.log("MiiGun        "); setChar("MiiGun");}}src={MiiGun        } width={dim} height={dim} alt="Mii Gunner"></Image> </div>}
+          {showPalutena       && <div> <Image component= {nextImage} onClick = {() => {console.log("Palutena      "); setChar("Palutena");}}src={Palutena      } width={dim} height={dim} alt="Palutena"></Image> </div>}
+          {showPacMan         && <div> <Image component= {nextImage} onClick = {() => {console.log("PacMan        "); setChar("PacMan");}}src={PacMan        } width={dim} height={dim} alt="Pac-Man"></Image> </div>}
+          {showRobin          && <div> <Image component= {nextImage} onClick = {() => {console.log("Robin         "); setChar("Robin");}}src={Robin         } width={dim} height={dim} alt="Robin"></Image> </div>}
+          {showShulk          && <div> <Image component= {nextImage} onClick = {() => {console.log("Shulk         "); setChar("Shulk");}}src={Shulk         } width={dim} height={dim} alt="Shulk"></Image> </div>}
+          {showBowserJr       && <div> <Image component= {nextImage} onClick = {() => {console.log("BowserJr      "); setChar("BowserJr");}}src={BowserJr      } width={dim} height={dim} alt="Bowser Jr."></Image> </div>}
+          {showDuckHunt       && <div> <Image component= {nextImage} onClick = {() => {console.log("DuckHunt      "); setChar("DuckHunt");}}src={DuckHunt      } width={dim} height={dim} alt="Duck Hunt"></Image> </div>}
+          {showRyu            && <div> <Image component= {nextImage} onClick = {() => {console.log("Ryu           "); setChar("Ryu");}}src={Ryu           } width={dim} height={dim} alt="Ryu"></Image> </div>}
+          {showKen            && <div> <Image component= {nextImage} onClick = {() => {console.log("Ken           "); setChar("Ken");}}src={Ken           } width={dim} height={dim} alt="Ken"></Image> </div>}
+          {showCloud          && <div> <Image component= {nextImage} onClick = {() => {console.log("Cloud         "); setChar("Cloud");}}src={Cloud         } width={dim} height={dim} alt="Cloud"></Image> </div>}
+          {showCorrin         && <div> <Image component= {nextImage} onClick = {() => {console.log("Corrin        "); setChar("Corrin");}}src={Corrin        } width={dim} height={dim} alt="Corrin"></Image> </div>}
+          {showBayonetta      && <div> <Image component= {nextImage} onClick = {() => {console.log("Bayonetta     "); setChar("Bayonetta");}}src={Bayonetta     } width={dim} height={dim} alt="Bayonetta"></Image> </div>}
+          {showInkling        && <div> <Image component= {nextImage} onClick = {() => {console.log("Inkling       "); setChar("Inkling");}}src={Inkling       } width={dim} height={dim} alt="Inkling"></Image> </div>}
+          {showRidley         && <div> <Image component= {nextImage} onClick = {() => {console.log("Ridley        "); setChar("Ridley");}}src={Ridley        } width={dim} height={dim} alt="Ridley"></Image> </div>}
+          {showSimon          && <div> <Image component= {nextImage} onClick = {() => {console.log("Simon         "); setChar("Simon");}}src={Simon         } width={dim} height={dim} alt="Simon"></Image> </div>}
+          {showRichter        && <div> <Image component= {nextImage} onClick = {() => {console.log("Richter       "); setChar("Richter");}}src={Richter       } width={dim} height={dim} alt="Richter"></Image> </div>}
+          {showKingKRool      && <div> <Image component= {nextImage} onClick = {() => {console.log("KingKRool     "); setChar("KingKRool");}}src={KingKRool     } width={dim} height={dim} alt="King K. Rool"></Image> </div>}
+          {showIsabelle       && <div> <Image component= {nextImage} onClick = {() => {console.log("Isabelle      "); setChar("Isabelle");}}src={Isabelle      } width={dim} height={dim} alt="Isabelle"></Image> </div>}
+          {showIncineroar     && <div> <Image component= {nextImage} onClick = {() => {console.log("Incineroar    "); setChar("Incineroar");}}src={Incineroar    } width={dim} height={dim} alt="Incineroar"></Image> </div>}
+          {showPiranhaPlant   && <div> <Image component= {nextImage} onClick = {() => {console.log("PiranhaPlant  "); setChar("PiranhaPlant");}}src={PiranhaPlant  } width={dim} height={dim} alt="Piranha Plant"></Image> </div>}
+          {showJoker          && <div> <Image component= {nextImage} onClick = {() => {console.log("Joker         "); setChar("Joker");}}src={Joker         } width={dim} height={dim} alt="Joker"></Image> </div>}
+          {showHero           && <div> <Image component= {nextImage} onClick = {() => {console.log("Hero          "); setChar("Hero");}}src={Hero          } width={dim} height={dim} alt="Hero"></Image> </div>}
+          {showBanjoKazooie   && <div> <Image component= {nextImage} onClick = {() => {console.log("BanjoKazooie  "); setChar("BanjoKazooie");}}src={BanjoKazooie  } width={dim} height={dim} alt="Banjo & Kazooie"></Image> </div>}
+          {showTerry          && <div> <Image component= {nextImage} onClick = {() => {console.log("Terry         "); setChar("Terry");}}src={Terry         } width={dim} height={dim} alt="Terry"></Image> </div>}
+          {showByleth         && <div> <Image component= {nextImage} onClick = {() => {console.log("Byleth        "); setChar("Byleth");}}src={Byleth        } width={dim} height={dim} alt="Byleth"></Image> </div>}
+          {showMinMin         && <div> <Image component= {nextImage} onClick = {() => {console.log("MinMin        "); setChar("MinMin");}}src={MinMin        } width={dim} height={dim} alt="Min Min"></Image> </div>}
+          {showSteve          && <div> <Image component= {nextImage} onClick = {() => {console.log("Steve         "); setChar("Steve");}}src={Steve         } width={dim} height={dim} alt="Steve"></Image> </div>}
+          {showSephiroth      && <div> <Image component= {nextImage} onClick = {() => {console.log("Sephiroth     "); setChar("Sephiroth");}}src={Sephiroth     } width={dim} height={dim} alt="Sephiroth"></Image> </div>}
+          {showPyra           && <div> <Image component= {nextImage} onClick = {() => {console.log("Pyra          "); setChar("Pyra");}}src={Pyra          } width={dim} height={dim} alt="Pyra"></Image> </div>}
+          {showMythra         && <div> <Image component= {nextImage} onClick = {() => {console.log("Mythra        "); setChar("Mythra");}}src={Mythra        } width={dim} height={dim} alt="Mythra"></Image> </div>}
+          {showKazuya         && <div> <Image component= {nextImage} onClick = {() => {console.log("Kazuya        "); setChar("Kazuya");}}src={Kazuya        } width={dim} height={dim} alt="Kazuya"></Image> </div>}
+          {showSora           && <div> <Image component= {nextImage} onClick = {() => {console.log("Sora          "); setChar("Sora");}}src={Sora          } width={dim} height={dim} alt="Sora"></Image> </div>}
         </SimpleGrid>  
         
 
