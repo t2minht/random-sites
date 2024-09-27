@@ -188,7 +188,8 @@ export default function Home() {
   const [showSora, setSora] = useState(true);
   const characters = ["Mario", "DonkeyKong", "Link", "Samus", "DarkSamus", "Yoshi", "Kirby", "Fox", "Pikachu", "Luigi", "Ness", "CaptainFalcon", "Jigglypuff", "Peach", "Daisy", "Bowser", "IceClimbers", "Sheik", "Zelda", "DrMario", "Pichu", "Falco", "Marth", "Lucina", "YoungLink", "Ganondorf", "Mewtwo", "Roy", "Chrom", "MrGameAndWatch", "MetaKnight", "Pit", "DarkPit", "ZSS", "Wario", "Snake", "Ike", "PokemonTrainer", "DiddyKing", "Lucas", "Sonic", "KingDedede", "Olimar", "Lucario", "ROB", "ToonLink", "Wolf", "Villager", "Megaman", "WiiFitTrainer", "Rosalina", "Mac", "Greninja", "MiiFight", "MiiSword", "MiiGun", "Palutena", "PacMan", "Robin", "Shulk", "BowserJr", "DuckHunt", "Ryu", "Ken", "Cloud", "Corrin", "Bayonetta", "Inkling", "Ridley", "Simon", "Richter", "KingKRool", "Isabelle", "Incineroar", "PiranhaPlant", "Joker", "Hero", "BanjoKazooie", "Terry", "Byleth", "MinMin", "Steve", "Sephiroth", "Pyra", "Mythra", "Kazuya", "Sora"];
   const charImages = [Mario, DonkeyKong, Link, Samus, DarkSamus, Yoshi, Kirby, Fox, Pikachu, Luigi, Ness, CaptainFalcon, Jigglypuff, Peach, Daisy, Bowser, IceClimbers, Sheik, Zelda, DrMario, Pichu, Falco, Marth, Lucina, YoungLink, Ganondorf, Mewtwo, Roy, Chrom, MrGameAndWatch, MetaKnight, Pit, DarkPit, ZSS, Wario, Snake, Ike, PokemonTrainer, DiddyKing, Lucas, Sonic, KingDedede, Olimar, Lucario, ROB, ToonLink, Wolf, Villager, Megaman, WiiFitTrainer, Rosalina, Mac, Greninja, MiiFight, MiiSword, MiiGun, Palutena, PacMan, Robin, Shulk, BowserJr, DuckHunt, Ryu, Ken, Cloud, Corrin, Bayonetta, Inkling, Ridley, Simon, Richter, KingKRool, Isabelle, Incineroar, PiranhaPlant, Joker, Hero, BanjoKazooie, Terry, Byleth, MinMin, Steve, Sephiroth, Pyra, Mythra, Kazuya, Sora];
-
+  const charNames = ["Mario", "Donkey Kong", "Link", "Samus", "Dark Samus", "Yoshi", "Kirby", "Fox", "Pikachu", "Luigi", "Ness", "Captain Falcon", "Jigglypuff", "Peach", "Daisy", "Bowser", "Ice Climbers", "Sheik", "Zelda", "Dr. Mario", "Pichu", "Falco", "Marth", "Lucina", "Young Link", "Ganondorf", "Mewtwo", "Roy", "Chrom", "Mr. Game&Watch", "Meta Knight", "Pit", "Dark Pit", "Zero Suit Samus", "Wario", "Snake", "Ike", "Pokemon Trainer", "Diddy Kong", "Lucas", "Sonic", "King Dedede", "Olimar", "Lucario", "ROB", "Toon Link", "Wolf", "Villager", "Mega Man", "Wii Fit Trainer", "Rosalina", "Mac", "Greninja", "Mii Fighter", "Mii Swordfighter", "Mii Gunner", "Palutena", "Pac-Man", "Robin", "Shulk", "Bowser Jr.", "Duck Hunt", "Ryu", "Ken", "Cloud", "Corrin", "Bayonetta", "Inkling", "Ridley", "Simon", "Richter", "King K. Rool", "Isabelle", "Incineroar", "Piranha Plant", "Joker", "Hero", "Banjo Kazooie", "Terry", "Byleth", "MinMin", "Steve", "Sephiroth", "Pyra", "Mythra", "Kazuya", "Sora"];
+  
   useEffect( () => {
       let data = localStorage.getItem("charStates");
       if (data !== null){
@@ -669,7 +670,7 @@ export default function Home() {
       let chosen = Math.floor(Math.random() * 87);
       if(state[characters[chosen]]){
         changeChosen(charImages[chosen]);
-        changeName(characters[chosen]);
+        changeName(charNames[chosen]);
         state[characters[chosen]] = false;
         setMario(state.Mario);
         setDonkeyKong(state.DonkeyKong);
@@ -777,7 +778,7 @@ export default function Home() {
   return (
     <main className={style.mainbody}>
       <MantineProvider>
-        <Modal opened = {opened} onClose = {(event) => closer(event)}>
+        <Modal removeScrollProps={{ removeScrollBar: false }} opened = {opened} onClose = {(event) => closer(event)}>
           <Center>
             {!showChar && 
               <Image 
