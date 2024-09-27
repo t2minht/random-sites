@@ -88,13 +88,15 @@ import MiiFight from '/public/assets/characters/Mii_Fight.png';
 import MiiSword from '/public/assets/characters/Mii_Sword.png';
 import MiiGun from '/public/assets/characters/Mii_Gun.png';
 
-import { MantineProvider, SimpleGrid, Flex, Image, Button } from '@mantine/core';
+import SmashBall from '/public/assets/smash ball.jpg';
+
+import { MantineProvider, SimpleGrid, Flex, Image, Button, Center, Modal } from '@mantine/core';
 import nextImage from 'next/image';
 import { useEffect, useState } from 'react';
 
-import style from '/src/app/SSBUPicker/page.module.css';
-
+import style from './page.module.css';
 import '@mantine/core/styles.css';
+import { useDisclosure } from '@mantine/hooks';
 
 export default function Home() {
   const [showMario, setMario] = useState(true);
@@ -184,6 +186,8 @@ export default function Home() {
   const [showMythra, setMythra] = useState(true);
   const [showKazuya, setKazuya] = useState(true);
   const [showSora, setSora] = useState(true);
+  const characters = ["Mario", "DonkeyKong", "Link", "Samus", "DarkSamus", "Yoshi", "Kirby", "Fox", "Pikachu", "Luigi", "Ness", "CaptainFalcon", "Jigglypuff", "Peach", "Daisy", "Bowser", "IceClimbers", "Sheik", "Zelda", "DrMario", "Pichu", "Falco", "Marth", "Lucina", "YoungLink", "Ganondorf", "Mewtwo", "Roy", "Chrom", "MrGameAndWatch", "MetaKnight", "Pit", "DarkPit", "ZSS", "Wario", "Snake", "Ike", "PokemonTrainer", "DiddyKing", "Lucas", "Sonic", "KingDedede", "Olimar", "Lucario", "ROB", "ToonLink", "Wolf", "Villager", "Megaman", "WiiFitTrainer", "Rosalina", "Mac", "Greninja", "MiiFight", "MiiSword", "MiiGun", "Palutena", "PacMan", "Robin", "Shulk", "BowserJr", "DuckHunt", "Ryu", "Ken", "Cloud", "Corrin", "Bayonetta", "Inkling", "Ridley", "Simon", "Richter", "KingKRool", "Isabelle", "Incineroar", "PiranhaPlant", "Joker", "Hero", "BanjoKazooie", "Terry", "Byleth", "MinMin", "Steve", "Sephiroth", "Pyra", "Mythra", "Kazuya", "Sora"];
+  const charImages = [Mario, DonkeyKong, Link, Samus, DarkSamus, Yoshi, Kirby, Fox, Pikachu, Luigi, Ness, CaptainFalcon, Jigglypuff, Peach, Daisy, Bowser, IceClimbers, Sheik, Zelda, DrMario, Pichu, Falco, Marth, Lucina, YoungLink, Ganondorf, Mewtwo, Roy, Chrom, MrGameAndWatch, MetaKnight, Pit, DarkPit, ZSS, Wario, Snake, Ike, PokemonTrainer, DiddyKing, Lucas, Sonic, KingDedede, Olimar, Lucario, ROB, ToonLink, Wolf, Villager, Megaman, WiiFitTrainer, Rosalina, Mac, Greninja, MiiFight, MiiSword, MiiGun, Palutena, PacMan, Robin, Shulk, BowserJr, DuckHunt, Ryu, Ken, Cloud, Corrin, Bayonetta, Inkling, Ridley, Simon, Richter, KingKRool, Isabelle, Incineroar, PiranhaPlant, Joker, Hero, BanjoKazooie, Terry, Byleth, MinMin, Steve, Sephiroth, Pyra, Mythra, Kazuya, Sora];
 
   useEffect( () => {
       let data = localStorage.getItem("charStates");
@@ -371,7 +375,7 @@ export default function Home() {
       }
   });
 
-  var dim = 125;
+  var dim = 250;
 
 
   function reset(event){
@@ -557,93 +561,7 @@ export default function Home() {
     let data = localStorage.getItem("charStates");
       if (data !== undefined){
         let state = JSON.parse(data);
-        if(char == "Mario"){state.Mario = false;}
-        if(char == "DonkeyKong"){state.DonkeyKong = false;}
-        if(char == "Link"){state.Link = false;}
-        if(char == "Samus"){state.Samus = false;}
-        if(char == "DarkSamus"){state.DarkSamus = false;}
-        if(char == "Yoshi"){state.Yoshi = false;}
-        if(char == "Kirby"){state.Kirby = false;}
-        if(char == "Fox"){state.Fox = false;}
-        if(char == "Pikachu"){state.Pikachu = false;}
-        if(char == "Luigi"){state.Luigi = false;}
-        if(char == "Ness"){state.Ness = false;}
-        if(char == "CaptainFalcon"){state.CaptainFalcon = false;}
-        if(char == "Jigglypuff"){state.Jigglypuff = false;}
-        if(char == "Peach"){state.Peach = false;}
-        if(char == "Daisy"){state.Daisy = false;}
-        if(char == "Bowser"){state.Bowser = false;}
-        if(char == "IceClimbers"){state.IceClimbers = false;}
-        if(char == "Sheik"){state.Sheik = false;}
-        if(char == "Zelda"){state.Zelda = false;}
-        if(char == "DrMario"){state.DrMario = false;}
-        if(char == "Pichu"){state.Pichu = false;}
-        if(char == "Falco"){state.Falco = false;}
-        if(char == "Marth"){state.Marth = false;}
-        if(char == "Lucina"){state.Lucina = false;}
-        if(char == "YoungLink"){state.YoungLink = false;}
-        if(char == "Ganondorf"){state.Ganondorf = false;}
-        if(char == "Mewtwo"){state.Mewtwo = false;}
-        if(char == "Roy"){state.Roy = false;}
-        if(char == "Chrom"){state.Chrom = false;}
-        if(char == "MrGameAndWatch"){state.MrGameAndWatch = false;}
-        if(char == "MetaKnight"){state.MetaKnight = false;}
-        if(char == "Pit"){state.Pit = false;}
-        if(char == "DarkPit"){state.DarkPit = false;}
-        if(char == "ZSS"){state.ZSS = false;}
-        if(char == "Wario"){state.Wario = false;}
-        if(char == "Snake"){state.Snake = false;}
-        if(char == "Ike"){state.Ike = false;}
-        if(char == "PokemonTrainer"){state.PokemonTrainer = false;}
-        if(char == "DiddyKing"){state.DiddyKing = false;}
-        if(char == "Lucas"){state.Lucas = false;}
-        if(char == "Sonic"){state.Sonic = false;}
-        if(char == "KingDedede"){state.KingDedede = false;}
-        if(char == "Olimar"){state.Olimar = false;}
-        if(char == "Lucario"){state.Lucario = false;}
-        if(char == "ROB"){state.ROB = false;}
-        if(char == "ToonLink"){state.ToonLink = false;}
-        if(char == "Wolf"){state.Wolf = false;}
-        if(char == "Villager"){state.Villager = false;}
-        if(char == "Megaman"){state.Megaman = false;}
-        if(char == "WiiFitTrainer"){state.WiiFitTrainer = false;}
-        if(char == "Rosalina"){state.Rosalina = false;}
-        if(char == "Mac"){state.Mac = false;}
-        if(char == "Greninja"){state.Greninja = false;}
-        if(char == "MiiFight"){state.MiiFight = false;}
-        if(char == "MiiSword"){state.MiiSword = false;}
-        if(char == "MiiGun"){state.MiiGun = false;}
-        if(char == "Palutena"){state.Palutena = false;}
-        if(char == "PacMan"){state.PacMan = false;}
-        if(char == "Robin"){state.Robin = false;}
-        if(char == "Shulk"){state.Shulk = false;}
-        if(char == "BowserJr"){state.BowserJr = false;}
-        if(char == "DuckHunt"){state.DuckHunt = false;}
-        if(char == "Ryu"){state.Ryu = false;}
-        if(char == "Ken"){state.Ken = false;}
-        if(char == "Cloud"){state.Cloud = false;}
-        if(char == "Corrin"){state.Corrin = false;}
-        if(char == "Bayonetta"){state.Bayonetta = false;}
-        if(char == "Inkling"){state.Inkling = false;}
-        if(char == "Ridley"){state.Ridley = false;}
-        if(char == "Simon"){state.Simon = false;}
-        if(char == "Richter"){state.Richter = false;}
-        if(char == "KingKRool"){state.KingKRool = false;}
-        if(char == "Isabelle"){state.Isabelle = false;}
-        if(char == "Incineroar"){state.Incineroar = false;}
-        if(char == "PiranhaPlant"){state.PiranhaPlant = false;}
-        if(char == "Joker"){state.Joker = false;}
-        if(char == "Hero"){state.Hero = false;}
-        if(char == "BanjoKazooie"){state.BanjoKazooie = false;}
-        if(char == "Terry"){state.Terry = false;}
-        if(char == "Byleth"){state.Byleth = false;}
-        if(char == "MinMin"){state.MinMin = false;}
-        if(char == "Steve"){state.Steve = false;}
-        if(char == "Sephiroth"){state.Sephiroth = false;}
-        if(char == "Pyra"){state.Pyra = false;}
-        if(char == "Mythra"){state.Mythra = false;}
-        if(char == "Kazuya"){state.Kazuya = false;}
-        if(char == "Sora"){state.Sora = false;}
+        state[char] = false;
 
         setMario(state.Mario);
         setDonkeyKong(state.DonkeyKong);
@@ -738,18 +656,178 @@ export default function Home() {
         console.log(state);
       }
   }
+  const [chosen, changeChosen] = useState(null);
+  const [chosenName, changeName] = useState("");
+  const [showChar, toggleShow] = useState(false);  
+  function randomCharacter(event){
+    console.log("open");
+    handlers.open();
+    let counter = 0;
+    let state = JSON.parse(localStorage.getItem("charStates"));
+    // console.log(data);
+    while(counter < 87){
+      let chosen = Math.floor(Math.random() * 87);
+      if(state[characters[chosen]]){
+        changeChosen(charImages[chosen]);
+        changeName(characters[chosen]);
+        state[characters[chosen]] = false;
+        setMario(state.Mario);
+        setDonkeyKong(state.DonkeyKong);
+        setLink(state.Link);
+        setSamus(state.Samus);
+        setDarkSamus(state.DarkSamus);
+        setYoshi(state.Yoshi);
+        setKirby(state.Kirby);
+        setFox(state.Fox);
+        setPikachu(state.Pikachu);
+        setLuigi(state.Luigi);
+        setNess(state.Ness);
+        setCaptainFalcon(state.CaptainFalcon);
+        setJigglypuff(state.Jigglypuff);
+        setPeach(state.Peach);
+        setDaisy(state.Daisy);
+        setBowser(state.Bowser);
+        setIceClimbers(state.IceClimbers);
+        setSheik(state.Sheik);
+        setZelda(state.Zelda);
+        setDrMario(state.DrMario);
+        setPichu(state.Pichu);
+        setFalco(state.Falco);
+        setMarth(state.Marth);
+        setLucina(state.Lucina);
+        setYoungLink(state.YoungLink);
+        setGanondorf(state.Ganondorf);
+        setMewtwo(state.Mewtwo);
+        setRoy(state.Roy);
+        setChrom(state.Chrom);
+        setMrGameAndWatch(state.MrGameAndWatch);
+        setMetaKnight(state.MetaKnight);
+        setPit(state.Pit);
+        setDarkPit(state.DarkPit);
+        setZSS(state.ZSS);
+        setWario(state.Wario);
+        setSnake(state.Snake);
+        setIke(state.Ike);
+        setPokemonTrainer(state.PokemonTrainer);
+        setDiddyKing(state.DiddyKing);
+        setLucas(state.Lucas);
+        setSonic(state.Sonic);
+        setKingDedede(state.KingDedede);
+        setOlimar(state.Olimar);
+        setLucario(state.Lucario);
+        setROB(state.ROB);
+        setToonLink(state.ToonLink);
+        setWolf(state.Wolf);
+        setVillager(state.Villager);
+        setMegaman(state.Megaman);
+        setWiiFitTrainer(state.WiiFitTrainer);
+        setRosalina(state.Rosalina);
+        setMac(state.Mac);
+        setGreninja(state.Greninja);
+        setMiiFight(state.MiiFight);
+        setMiiSword(state.MiiSword);
+        setMiiGun(state.MiiGun);
+        setPalutena(state.Palutena);
+        setPacMan(state.PacMan);
+        setRobin(state.Robin);
+        setShulk(state.Shulk);
+        setBowserJr(state.BowserJr);
+        setDuckHunt(state.DuckHunt);
+        setRyu(state.Ryu);
+        setKen(state.Ken);
+        setCloud(state.Cloud);
+        setCorrin(state.Corrin);
+        setBayonetta(state.Bayonetta);
+        setInkling(state.Inkling);
+        setRidley(state.Ridley);
+        setSimon(state.Simon);
+        setRichter(state.Richter);
+        setKingKRool(state.KingKRool);
+        setIsabelle(state.Isabelle);
+        setIncineroar(state.Incineroar);
+        setPiranhaPlant(state.PiranhaPlant);
+        setJoker(state.Joker);
+        setHero(state.Hero);
+        setBanjoKazooie(state.BanjoKazooie);
+        setTerry(state.Terry);
+        setByleth(state.Byleth);
+        setMinMin(state.MinMin);
+        setSteve(state.Steve);
+        setSephiroth(state.Sephiroth);
+        setPyra(state.Pyra);
+        setMythra(state.Mythra);
+        setKazuya(state.Kazuya);
+        setSora(state.Sora);
+
+        localStorage.setItem("charStates", JSON.stringify(state));
+        break;
+      }
+      counter+=1;
+    }
+    setTimeout(()=>{toggleShow(true)}, (Math.random() * 4000 + 500));
+
+  }
+  function closer(event){
+    handlers.close();
+    toggleShow(false);
+  }
+
+  const[opened, handlers] = useDisclosure(false);
 
   return (
-    <main>
+    <main className={style.mainbody}>
       <MantineProvider>
-        <Button 
-          variant="filled"
-          onClick={(event) => reset(event)}
-        >
-          Reset
-        </Button>
+        <Modal opened = {opened} onClose = {(event) => closer(event)}>
+          <Center>
+            {!showChar && 
+              <Image 
+                component={nextImage}
+                src={SmashBall}
+                alt="Smash Ball"
+                className={style.rotate}
+                h={100}
+                w="auto"
+                fit="contain"
+              ></Image>
+            }
+            {showChar &&
+              <div>
+                <Center><h3>{chosenName}</h3></Center>
+                <Image
+                  component={nextImage}
+                  src={chosen}
+                  alt={chosenName}
+                  h={100}
+                  w="auto"
+                  fit="contain"
+                ></Image>
+              </div>
+              
+            }
+          </Center>
+        </Modal>
+        <h1 className={style.title}>
+          SSBU Character Randomizer
+        </h1>
+        <Center className={style.buttons}>
+          <Button 
+            variant="filled"
+            onClick={(event) => randomCharacter(event)}
+          >
+            Select Random
+            <br/>
+            Character
+          </Button>
+          <Button 
+            variant="filled"
+            onClick={(event) => reset(event)}
+          >
+            Reset List
+          </Button>
+        </Center>
         <SimpleGrid
         cols= {4}
+        
         >
           {showMario          && <div> <Image component= {nextImage} onClick = {() => {console.log("Mario         "); setChar("Mario");}}src={Mario         } width={dim} height={dim} alt="Mario"></Image> </div>}
           {showDonkeyKong     && <div> <Image component= {nextImage} onClick = {() => {console.log("DonkeyKong    "); setChar("DonkeyKong");}}src={DonkeyKong    } width={dim} height={dim} alt="DK"></Image> </div>}
