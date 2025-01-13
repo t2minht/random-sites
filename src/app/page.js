@@ -9,6 +9,7 @@ export default function Home() {
     <main>
       <h1>Welcome to home page, there is nothing here except</h1>
       <button type="button" onClick={()=>router.push('/SSBUPicker')}>Smash Bros Picker </button>
+      <br />
       <button type="button" onClick={()=>router.push('/LastMeals')}>Last Meals </button>
     </main>
   );
